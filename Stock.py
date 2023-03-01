@@ -38,7 +38,7 @@ class Stock:
         try:
             for k, i in self.price_history.items():
                 percentage_diff = (float(i) * 100) / float(temp_prices[temp_prices.index(i) + 1]) - 100
-                if percentage_diff > 5 or percentage_diff < -5:
+                if percentage_diff >= 5 or percentage_diff <= -5:
                     print("GET NEWS!!")
                     # print(k)
                     temp_date = str.split(k, ' ')
@@ -47,7 +47,7 @@ class Stock:
                     self.from_Date = my_date.strftime('%Y-%m-%d')
                     my_news = News.News(self.company_name, self.from_Date)
                     my_news.get_news()
-
+#TODO make it where the news doesnt get called everytime a hit is returned for the 5% iff statement above
                     # print(f"Hour and Value: {k} {i}")
                     # print(f"Previous Hour's Value= {temp_prices[temp_prices.index(i) + 1]}")
                     # print ("percentage_diff = " , percentage_diff)
