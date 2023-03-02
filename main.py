@@ -1,8 +1,5 @@
-import twilio
-import requests
 import os
 
-import News
 import Stock
 
 # ENV variable for keys,tokens, etc
@@ -14,7 +11,7 @@ COMPANY_NAME = "BGC Partners"
 
 ## STEP 1: Use https://www.alphavantage.co
 # When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
-my_ticker = Stock.Stock(TICKER, COMPANY_NAME)
+my_ticker = Stock.Ticker(TICKER, COMPANY_NAME)
 my_ticker.get_intraday()
 my_ticker.parse_data()
 
