@@ -17,12 +17,10 @@ class News:
         # https://newsapi.org/v2/everything?q=tesla&from=2023-02-01&sortBy=publishedAt&apiKey=API_KEY
 
     def get_news(self):
-        print(self.from_date)
         get_request = requests.get(url=self.url, params=self.parameters)
         get_request.raise_for_status()
         data = get_request.json()
         if len(data['articles']) >= 3:
-            print(data['articles'][:3])
             for x in data['articles'][0:3]:
                 print(f"Title: {x['title']}")
                 print(f"Description: {x['description']}")
